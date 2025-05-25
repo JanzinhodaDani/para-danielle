@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Danielle</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #000000, #1a001a);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #ff6699;
+      margin: 30px 20px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff6699;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-top: 20px;
+      color: #ffccff;
+      z-index: 2;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .hidden-player {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: fall 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(45deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+        white-space: normal;
+        animation: none;
+        width: auto;
+        border: none;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Eu te amo Danielle, um dia... você será minha namorada.</h1>
+
+  <p>
+    Danielle, você é a melhor coisa que já me aconteceu. Desde que te conheci, meu coração encontrou um motivo real pra bater mais forte. Eu vou insistir em você até o último dia da minha vida, porque amar você é a certeza mais bonita que carrego. Mesmo que o mundo diga “não”, eu continuo dizendo “sim” pra nós. Eu acredito em nós, e nunca vou desistir de te conquistar.
+  </p>
+
+  <div class="hidden-player">
+    <iframe
+      width="0"
+      height="0"
+      src="https://www.youtube.com/embed/HxfE6PJmGS8?autoplay=1&loop=1&mute=1&playlist=HxfE6PJmGS8"
+      frameborder="0"
+      allow="autoplay"
+    ></iframe>
+  </div>
+
+  <script>
+    // Corações caindo
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 2 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
